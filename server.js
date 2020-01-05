@@ -16,9 +16,7 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-    console.log(req.body);
-    console.log(req.query);
-    res.send(`Mensaje añadido (${req.body.text} desde post)`);
+    res.status(201).send({ error: '', body: 'mensaje eliminado'});
 });
 
 router.put('/', (req,res) => {
@@ -30,7 +28,7 @@ router.patch('/', (req,res) => {
 });
 
 router.delete('/', (req,res) => {
-    res.status(201).send();
+    res.send('Mensaje eliminado (Hola desde delete');
 });
 
 app.listen(3000, () => {
