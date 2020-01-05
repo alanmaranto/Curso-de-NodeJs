@@ -30,7 +30,7 @@ router.patch('/', (req,res) => {
 });
 
 router.delete('/', (req,res) => {
-    res.send('Mensaje borrado (Hola desde delete)');
+    res.status(201).send();
 });
 
 app.listen(3000, () => {
