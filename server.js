@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
 });
 
 router.post('/', (req,res) => {
-    res.status(201).send({ error: '', body: 'mensaje eliminado'});
+    res.status(201).send([{ error: '', body: 'mensaje eliminado'}]);
 });
 
 router.put('/', (req,res) => {
