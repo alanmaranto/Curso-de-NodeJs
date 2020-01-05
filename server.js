@@ -1,8 +1,27 @@
 const express = require('express');
-const app = express();
+const router = express.Router();
 
-app.use('/', (req,res) => {
-    res.send('Hola');
+const app = express();
+app.use(router);
+
+router.get('/', (req,res) => {
+    res.send('Lista de mensajes (hola desde get)');
+});
+
+router.post('/', (req,res) => {
+    res.send('Mensaje añadido (Hola desde post)');
+});
+
+router.put('/', (req,res) => {
+    res.send('Mensaje editado (Hola desde put)');
+});
+
+router.patch('/', (req,res) => {
+    res.send('Mensaje editado (Hola desde patch)');
+});
+
+router.delete('/', (req,res) => {
+    res.send('Mensaje borrado (Hola desde delete)');
 });
 
 app.listen(3000, () => {
