@@ -13,7 +13,8 @@ router.get('/', (req,res) => {
 
 router.post('/', (req,res) => {
     console.log(req.body);
-    res.send('Mensaje añadido (Hola desde post)');
+    console.log(req.query);
+    res.send(`Mensaje añadido (${req.body.text} desde post)`);
 });
 
 router.put('/', (req,res) => {
