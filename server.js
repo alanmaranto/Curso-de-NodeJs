@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(router);
 
 router.get('/', (req,res) => {
+    console.log(req.headers);
     res.send('Lista de mensajes (hola desde get)');
 });
 
