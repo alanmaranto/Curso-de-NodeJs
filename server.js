@@ -38,6 +38,8 @@ router.delete("/", (req, res) => {
   res.send("Mensaje eliminado (Hola desde delete");
 });
 
+app.use('/app', express.static('public'));
+
 app.listen(3000, () => {
   console.log("Telegram listening on port 3000");
 });
