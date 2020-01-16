@@ -11,5 +11,5 @@ const mySchema = new Schema({
     date: Date,
 });
 
-const model = mongoose.model('Message', mySchema);
+const model = mongoose.model('Message', mySchema); // Message es el nombre de la colección
 module.exports = model;
