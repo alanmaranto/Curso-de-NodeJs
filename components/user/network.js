@@ -4,6 +4,17 @@ const response = require("../../network/response");
 const router = express.Router();
 const controller = require("./controller.js");
 
+router.get("/", (req,res) => {
+  controller
+    .getAllUsers()
+    .then(users => {
+      response.success(req, res, users, 200);
+    })
+    .catch(e => {
+      response.error(req, res, "Unexpected Error", 500, e);
+    });
+});
+
 router.post("/", (req, res) => {
   controller
     .addUser(req.body.name)
