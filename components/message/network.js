@@ -1,8 +1,14 @@
 const express = require("express");
 const response = require("../../network/response");
+const multer = require('multer');
 
 const router = express.Router();
 const controller = require("./controller.js");
+
+const uploadFile = multer({
+  dest: 'uploads/',
+
+})
 
 router.get("/", (req, res) => {
   const filterMessages = req.query.chat || null;
@@ -17,7 +23,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", uploadFile.single('file') ,(req, res) => {
   console.log(req.query);
   controller
     .addMessage(req.body.chat, req.body.user, req.body.message)
