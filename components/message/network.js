@@ -6,7 +6,7 @@ const router = express.Router();
 const controller = require("./controller.js");
 
 const uploadFile = multer({
-  dest: 'uploads/',
+  dest: 'public/files/',
 
 })
 
@@ -24,9 +24,9 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", uploadFile.single('file') ,(req, res) => {
-  console.log(req.query);
+  console.log(req.file)
   controller
-    .addMessage(req.body.chat, req.body.user, req.body.message)
+    .addMessage(req.body.chat, req.body.user, req.body.message, req.file)
     .then(fullMessage => {
       response.success(req, res, fullMessage, 201);
     })
