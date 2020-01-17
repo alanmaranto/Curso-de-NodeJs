@@ -16,7 +16,7 @@ socket.connect(server)
 
 router(app)
 
-app.use('/app', express.static('public'));
+app.use('/', express.static('public'));
 
 server.listen(3000, () => {
   console.log("Telegram listening on port 3000");
